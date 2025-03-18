@@ -1,0 +1,35 @@
+h3 BabbleData Data Source
+
+p The BabbleData Data Source loads data from a BabbleData bucket.  The bucket must already exist or an error will be displayed.  For more details, refer to the documentation on BabbleData
+
+P Please note that it may be necessary to set the optional
+    em  url
+    |  property in the Data Source in order to connect to the correct Babble instance.
+    | This property lists other Babble servers.
+    | By default, this Data Source loads data from the current Babble server.
+
+property-table(properties='config.dashboard.properties.dataSources.options.babbleData.properties')
+
+h4 Pre-Processor
+
+p The BabbleData Data Source supports an optional pre-processor function that will be called before
+    | the Data Source executes.  For more details, see the main Data Sources page.
+
+h4 Post-Processor
+
+p The BabbleData Data Source supports an optional post-processor function that will be called after
+    | data is loaded.  For more details, see the main Data Sources page.
+
+h3 Examples
+
+p Examples of the BabbleData Data Source are available on the 
+    a(href='/example-datasource-babbledata') example-datasource-babbledata
+    |  dashboard
+
+h4 Basic Configuration
+p This is the most basic configuration, using a random GUID.
+pre.code.
+    {
+        "key": "6B4BA5A6-DFF4-11E5-8D51-4FBBDC50F6B1",
+        "type": "babbleData"
+    }
