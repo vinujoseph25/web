@@ -56,8 +56,5 @@
     "lodash": "^4.17.15",
     "main-bower-files": "^2.13.3",
     "merge-stream": "~1.0.1"
-  },
-  "dependencies": {
-    "angular-hotkeys": "^1.7.0"
   }
 }
