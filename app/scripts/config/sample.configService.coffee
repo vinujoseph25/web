@@ -29,8 +29,8 @@ babbleServices.factory 'configService', (commonConfigService) ->
     # "canPush": If true, enables pushing Dashboard from this instance to the destination instance.
     #
     # change babbleEnv to Dev or Prod
-    babbleEnv = 'Prod' 
-    # babbleEnv = 'Dev' 
+    # babbleEnv = 'Prod' 
+    babbleEnv = 'Dev' 
     host = window.location.origin+'/api';
     babbleEnvironments = [
         {

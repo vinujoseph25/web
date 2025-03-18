@@ -49,7 +49,6 @@ babbleApp = angular.module 'babbleApp', [
     'ui.bootstrap'
     'ui.ace'
     'dndLists'
-    'drahak.hotkeys'
     'googlechart'
     'LocalForageModule'
     'tableSort'

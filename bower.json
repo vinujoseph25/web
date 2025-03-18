@@ -22,7 +22,7 @@
     "angular-cookies": "1.4.9",
     "angular-drag-and-drop-lists": "~1.4.0",
     "angular-google-chart": "angular-google-chart#9588ed2",
-    "angular-hotkeys": "0.2.2",
+    "angular-hotkeys": "chieffancypants/angular-hotkeys#^1.7.0",
     "angular-localForage": "1.2.5",
     "angular-mocks": "1.4.9",
     "angular-numeraljs": "1.1.6",
