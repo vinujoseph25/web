@@ -1766,11 +1766,6 @@ babbleServices.factory 'commonConfigService', ->
                         tags: ['libraries', 'jquery', 'moment', 'lodash', 'angular', 'numeral', 'localforage', 'uri', 'bootstrap', 'c3.js', 'd3.js', 'font awesome', 'highcharts', 'masonry', 'metricsgraphics', 'select2', 'spin.js']
                     }
                     {
-                        name: 'Hotkeys'
-                        path: '/partials/help/hotkeys.html'
-                        tags: ['hotkeys', 'keys', 'shortcuts']
-                    }
-                    {
                         name: 'API'
                         path: '/partials/help/api.html'
                         tags: ['api', 'rest', 'service']

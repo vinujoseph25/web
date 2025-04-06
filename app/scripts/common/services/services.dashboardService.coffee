@@ -129,8 +129,8 @@ babbleServices.factory 'dashboardService', ($http, $resource, $q, analyticsServi
     service.dashboards = ->
         dashboardResource
 
-    # service.getTrendingDashboards = ->
-    #     analyticsService.getTopDashboards moment().subtract(3, 'days')
+    service.getTrendingDashboards = ->
+        analyticsService.getTopDashboards moment().subtract(3, 'days')
 
     service.getDashboards = (query) ->
         deferred = $q.defer()

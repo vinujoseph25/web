@@ -17,7 +17,7 @@
 #
 # Gui Editor controller.
 #
-babbleApp.controller 'GuiEditorController', ($scope, $state, $stateParams, $location, $hotkey, $uibModal, $window, configService, userService, dashboardService, tagService, aceService) ->
+babbleApp.controller 'GuiEditorController', ($scope, $state, $stateParams, $location, $uibModal, $window, configService, userService, dashboardService, tagService, aceService) ->
 
     # Store some configuration settings for the Editor
     $scope.dashboardProperties = configService.dashboard.properties
@@ -485,14 +485,6 @@ babbleApp.controller 'GuiEditorController', ($scope, $state, $stateParams, $loca
             $location.search('rev', null)
         else
             $location.search('rev', $scope.editor.revision)
-
-    # Hotkeys
-    saveHandler = (event) ->
-        event.preventDefault()
-        $scope.save()
-    $hotkey.bind 'Command + S', saveHandler
-    $hotkey.bind 'Ctrl + S', saveHandler
-
 
     # Prevent leaving the page dirty
     $scope.$on '$stateChangeStart', (event, toState) ->
