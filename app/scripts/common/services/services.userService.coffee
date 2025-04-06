@@ -188,12 +188,59 @@ babbleServices.factory 'userService', ($http, $localForage, $q, $rootScope, $win
                 $rootScope.$broadcast('logout')
                 alertify.log('Logged Out', 2500)
                 deferred.resolve()
-
+                $window.location.href = '/login'
             promise.error (error) ->
                 alertify.error('Error during logout', 2500)
                 deferred.reject()
 
         return deferred.promise
+
+    exports.requestPasswordReset = (email) ->
+        return if _.isEmpty(email)
+
+        deferred = $q.defer()
+
+        post = $http.post(configService.restServiceUrl + '/users/reset-password', { email: email })
+        post.success (data) ->
+            alertify.success('Password reset link sent to <strong>' + email + '</strong>', 2500)
+            deferred.resolve(data)
+        post.error (error) ->
+            alertify.error('Error sending password reset link', 2500)
+            deferred.reject(error)
+
+        return deferred.promise
+    
+    exports.changePassword = (password) ->
+        return if _.isEmpty(password)
+
+        deferred = $q.defer()
+        
+        if exports.isLoggedIn()
+            payload = { password: password }
+        else
+            payload = { password: password, token: exports.getResetToken() }
+
+        post = $http.post(configService.restServiceUrl + '/users/change-password', payload)
+        post.success (data) ->
+            alertify.success('Password changed successfully', 2500)
+            deferred.resolve(data)
+        post.error (error) ->
+            alertify.error('Error changing password', 2500)
+            deferred.reject(error)
+
+        return deferred.promise
+
+    exports.hasResetToken = ->
+        return if _.isEmpty($window.location.search)
+
+        # Check if the URL contains a reset token
+        return $window.location.search.indexOf('token=') != -1
+    
+    exports.getResetToken = ->
+        # Extract the reset token from the URL
+        return $window.location.search.split('token=')[1].split('&')[0] if exports.hasResetToken()
+        # Example: http://localhost:8080/reset-password?token=abc123&otherParam=value
+        # This would extract 'abc123' as the token
 
     exports.search = (query) ->
 

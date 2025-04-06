@@ -1,0 +1,55 @@
+.login-page
+  .login-left
+    .branding
+      h1.logo Babble.
+      
+    .login-form
+      h2 Login to your account
+      p.login-text Login now to explore what Babble set aside for you.
+      
+      .login-message(ng-if='loginMessage') {{ loginMessage }}
+      
+      form(ng-submit='login()')
+        input(type='text', ng-model='credentials.username', required, focus-on='focusUsername', placeholder='Username or Email')
+        
+        .password-field
+          input(type='password', ng-model='credentials.password', required, focus-on='focusPassword', placeholder='Password')
+          span.password-toggle
+            i.fa.fa-eye(title='Show password')
+        
+        .login-options
+          .remember-me
+            input#rememberMe(type='checkbox', ng-model='credentials.rememberMe')
+            label(for='rememberMe') Keep me logged in
+          
+          a.forgot-password(href='/reset-password') Forgot Password?
+        
+        p.modal-error.bg-danger(ng-if='loginError')
+          i.fa.fa-exclamation
+          span  {{ loginErrorMessage }}
+        
+        //- Hidden input for ng-submit to work
+        input(type='submit', style='position: absolute; left: -9999px')
+        
+        .login-actions
+          button.btn.btn-primary.login-btn(type='submit', ng-disabled='!canLogin()') Log In
+        
+      .register-link
+        span Not yet registered? 
+        a#create-account(href='/register') Create new account
+  
+  .login-right
+    .feature-preview
+      img.dashboard-preview(src='/img/login-preview.png', alt='Dashboard Preview')
+    
+    .feature-text
+      h2 Manage multiple lines easily
+      p Start monitoring and controlling your machines easily.
+      
+      .indicators
+        span.indicator.active
+        span.indicator
+        span.indicator
+    
+    .copyright
+      p 2020 Babble. All right reserved

@@ -18,7 +18,9 @@
 # Home controller - Home page containing the Dashoard list and editor
 #
 babbleApp.controller 'HomeController', ($scope, $location, $uibModal, configService, dashboardService, tagService, userService) ->
-
+    if userService.authEnabled and !userService.isLoggedIn()
+        $location.path('/login')
+        return
     #
     # Scope Variables
     #

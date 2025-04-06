@@ -140,6 +140,36 @@ babbleApp.config ($stateProvider, $urlRouterProvider, $locationProvider, $contro
     $urlRouterProvider.when('/export', '/export/')
 
     $stateProvider
+        .state('login', {
+        url: '/login'
+        templateUrl: '/partials/loginBabble.html'
+        controller: 'LoginBabbleController'
+        data:
+            title: 'Babble | Login'
+        resolve:
+            session: loadExistingSession
+            deps: lazyLoad ['/js/app.mgmt.js'], ['/css/app.mgmt.css']
+        })
+        .state('resetPassword', {
+        url: '/reset-password'
+        templateUrl: '/partials/resetPassword.html'
+        controller: 'ResetPasswordController'
+        data:
+            title: 'Babble | Reset Password'
+        resolve:
+            session: loadExistingSession
+            deps: lazyLoad ['/js/app.mgmt.js'], ['/css/app.mgmt.css']
+        })
+        .state('changePassword', {
+        url: '/change-password'
+        templateUrl: '/partials/changePassword.html'
+        controller: 'ChangePasswordController'
+        data:
+            title: 'Babble | Change Password'
+        resolve:
+            session: loadExistingSession
+            deps: lazyLoad ['/js/app.mgmt.js'], ['/css/app.mgmt.css']
+        })
         .state('home', {
             url: '/'
             templateUrl: '/partials/home.html'
